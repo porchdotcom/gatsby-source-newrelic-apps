@@ -1,0 +1,26 @@
+{
+  "name": "@porch/gatsby-source-newrelic-apps",
+  "version": "0.0.1",
+  "description": "Gatsby source plugin for applications on New Relic",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/porchdotcom/gatsby-source-newrelic-apps"
+  },
+  "author": "Alex Hogue <alexhogue@porch.com>",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "bugs": {
+    "url": "https://github.com/porchdotcom/gatsby-source-newrelic-apps/issues"
+  },
+  "homepage": "https://github.com/porchdotcom/gatsby-source-newrelic-apps#README",
+  "dependencies": {
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2"
+  },
+  "devDependencies": {
+    "@porch/eslint-config-porch": "^9.1.4",
+    "eslint": "^4.19.1"
+  }
+}
