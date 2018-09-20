@@ -1,9 +1,9 @@
-var asset = require('assert');
+var assert = require('assert');
 var crypto = require('crypto');
 var request = require('request-promise');
 
-exports.sourceNodes = ({ boundActionCreators: { createNode } }, { apiKey }) => {
-    asset(apiKey, 'New Relic API Key must be provided in gatsby-config');
+exports.sourceNodes = ({ boundActionCreators: { createNode }, createNodeId }, { apiKey }) => {
+    assert(apiKey, 'New Relic API Key must be provided in gatsby-config');
 
     return request.get({
         url: 'https://api.newrelic.com/v2/applications.json',
@@ -15,8 +15,8 @@ exports.sourceNodes = ({ boundActionCreators: { createNode } }, { apiKey }) => {
     }).then(({ applications }) => {
         applications.forEach(app => {
             createNode({
-                id: app.name,
-                appId: app.id,
+                id: createNodeId(`newrelic-app-${app.id}`),
+                app,
                 internal: {
                     type: 'NewRelicApp',
                     contentDigest: crypto
